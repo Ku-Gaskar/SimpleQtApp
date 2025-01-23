@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::onPushButtonClicked);
     connect(ui->actionExit, &QAction::triggered, this, &QApplication::quit);
     connect(ui->actionOpen, &QAction::triggered, this, &MainWindow::onActionOpenTriggered);
+    connect(ui->actionDriver, &QAction::triggered, this, &MainWindow::onDriverTriggered);
+    connect(ui->action, &QAction::triggered, this, &MainWindow::onCalendarTriggered);
 }
 
 // MainWindow::~MainWindow() {
@@ -39,4 +41,16 @@ void MainWindow::onActionOpenTriggered() {
     if (!fileName.isEmpty()) {
         ui->statusbar->showMessage("Выбран файл: " + fileName);
     }
+}
+
+void MainWindow::onDriverTriggered() const {
+    // ui->statusbar->showMessage("Привет!!!! :" + ui->horizontalSlider->value());
+    // const QString ttt = itoa(ui->horizontalSlider->value());
+    ui->statusbar->showMessage("Привет!!!! :"  + QString::number(ui->horizontalSlider->value()));
+}
+
+void MainWindow::onCalendarTriggered() const {
+    ui->statusbar->showMessage(
+    ui->calendarWidget->selectedDate().toString("dd.MM.yyyy"));
+
 }

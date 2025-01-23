@@ -24,6 +24,8 @@ public:
 private slots:
     void onPushButtonClicked() const; // Слот для нажатия кнопки
     void onActionOpenTriggered(); // Слот для открытия файла
+    void onDriverTriggered() const; // Слот для открытия файла
+    void onCalendarTriggered() const; // Слот для открытия файла
 
 private:
     Ui::MainWindow *ui; // Указатель на UI
